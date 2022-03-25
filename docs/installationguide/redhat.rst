@@ -51,18 +51,39 @@ ZoneMinder releases are hosted at RPM Fusion. New users should navigate to the `
 
     RHEL/CentOS 7 users should use *yum* instead of *dnf*
 
-RHEL/CentOS 7 & 8 users must enable the EPEL repo:
+CentOS 7 & 8 users must enable the EPEL repo:
+
+::
+    
+    sudo dnf install epel-release
+    
+RHEL users must enable the EPEL repo in this way:
+
+RHEL7:
 
 ::
 
-    sudo dnf install epel-release
-    
-RHEL/CentOS 8 users must also enable the PowerTools repo:
+    sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+
+RHEL8:
+
+::
+
+    sudo dnf install https://dl.fedoraproject.org/pub/epel/epel-release-latest-8.noarch.rpm  
+
+CentOS 8 users must also enable the PowerTools repo:
 
 ::
 
     sudo dnf install dnf-plugins-core
     sudo dnf config-manager --set-enabled PowerTools
+    
+RHEL 8 users must also enable the Codeready repo:
+
+::
+
+    sudo subscription-manager repos --enable=codeready-builder-for-rhel-8-x86_64-rpms
+
 
 Once the additional repos are enabled, install ZoneMinder from the commandline. Choose the package that matches the desired web server.
 
